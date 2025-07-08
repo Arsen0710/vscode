@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            color: #000;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f5f5f6;
+            margin: 0;
+        }
+
+        .next {
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .searcha {
+            width: 20px;
+            height: 20px;
+            padding: 8px;
+            box-sizing: content-box !important;
+            border-radius: 50%;
+            background-color: #e5eaed;
+            display: flex;
+        }
+
+        .ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            color: #31373e;
+        }
+
+        .li:hover {
+            background-color: #e5eaed;
+        }
+
+        .a{
+            margin-left: 8.3%;
+        }
+
+        .span {
+            font-weight: 600;
+            font-size: 13px;
+            width: 20px;
+            display: flex;
+        }
+
+        .twobuttons {
+            display: flex;
+            gap: 5px;
+            margin-left: auto;
+            margin-right: 8.3%;
+        }
+
+        .img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .imggifts {
+            background-image: url('gifts.webp');
+            height: 480px;
+            width: 97%;
+            border-radius: 24px;
+            display: flex;
+            background-size: cover;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            flex-direction: column;
+            padding-left: 26px;
+            margin-bottom: 88px;
+            justify-content: center;
+        }
+
+        .h1 {
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .p_slider-2 {
+            color: #fff;
+            margin-bottom: 26px;
+        }
+
+        .a_slider-2 {
+            width: 182px;
+            height: 54px;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            color: #000;
+            border-radius: 10px;
+            background-color: #fbcd0a;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .div_many-sliders-into {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .div_first-slider {
+            width: 100%;
+            height: 302px;
+            padding-left: 31px;
+            transition: transform 0.5s;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            border-radius: 24px;
+            flex-direction: column;
+            position: relative;
+            justify-content: center;
+            display: flex;
+        }
+
+        .div_first-slider:hover {
+            transform: translate(0, -5px);
+        }
+
+        .picture {
+            display: flex;
+            background-size: cover;
+            width: 590px;
+            left: 0;
+            height: 302px;
+            border-radius: 24px;
+            z-index: -1;
+            transition: transform 0.5s;
+            position: absolute;
+        }
+
+        .picture:hover {
+            transform: scale(1.04);
+        }
+
+        .div_second-slider {
+            width: 100%;
+            height: 302px;
+            padding-left: 31px;
+            transition: transform 0.5s;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            border-radius: 24px;
+            flex-direction: column;
+            position: relative;
+            justify-content: center;
+            display: flex;
+        }
+
+        .div_second-slider:hover {
+            transform: translate(0, -5px);
+        }
+
+        .div_third-slider {
+            width: 590px;
+            height: 302px;
+            padding-left: 31px;
+            transition: transform 0.5s;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            border-radius: 24px;
+            flex-direction: column;
+            position: relative;
+            justify-content: center;
+            display: flex;
+        }
+
+        .div_third-slider:hover {
+            transform: translate(0, -5px);
+        }
+
+        .div_fourth-slider {
+            width: 590px;
+            height: 302px;
+            padding-left: 31px;
+            transition: transform 0.5s;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            border-radius: 24px;
+            flex-direction: column;
+            position: relative;
+            justify-content: center;
+            display: flex;
+        }
+
+        .div_fourth-slider:hover {
+            transform: translate(0, -5px);
+        }
+
+        .div_fifth-slider {
+            background: radial-gradient(79.41% 79.41% at 24.63% 20.59%, #53e7ee 0%, #05beb9 100%);
+            width: 590px;
+            height: 302px;
+            border-radius: 24px;
+            padding-left: 31px;
+            transition: transform 0.3s;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .div_fifth-slider:hover {
+            transform: translate(0, -5px);
+        }
+
+        .div_sixth-slider {
+            width: 590px;
+            height: 302px;
+            padding-left: 31px;
+            transition: transform 0.5s;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            border-radius: 24px;
+            flex-direction: column;
+            position: relative;
+            justify-content: center;
+            display: flex;
+        }
+
+        .div_sixth-slider:hover {
+            transform: translate(0, -5px);
+        }
+
+        .h1-wrapping {
+            color: #fff;
+            margin-top: 0;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            z-index: 999;
+        }
+
+        .span-wrapping {
+            color: #fff;
+            font-size: 19.3px;
+            font-weight: 400;
+            margin-top: 0;
+            z-index: 1;
+        }
+
+        .a-wrapping {
+            width: 164px;
+            height: 18px;
+            box-sizing: content-box;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 24px;
+            padding-right: 24px;
+            background: #fdd400;
+            display: block;
+            color: #2f3137;
+            text-align: center;
+            border-radius: 10px;
+            z-index: 999;
+        }
+
+        .span-wrapping_second {
+            color: #18191c;
+            font-size: 18px;
+        }
+
+        .a-wrapping_second {
+            color: #fff;
+        }
+
+        .span-wrapping_third {
+            font-size: 70px;
+            font-weight: 900;
+            margin-top: 10px;
+            margin-bottom: 0;
+            color: #fff;
+        }
+
+        .h1-wrapping_second {
+            margin-bottom: 0;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .div-button_call {
+            background: linear-gradient(139.97deg, #00a197 5.78%, #0092a1 84.78%);
+            display: flex;
+            width: 64px;
+            height: 64px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            border: 2px solid rgba(230, 245, 246, .8);
+            box-shadow: 4px 10px 10px -4px rgba(0, 0, 0, .15);
+            right: 19px;
+            bottom: 48px;
+            position: fixed;
+            z-index: 999;
+        }
+
+        .a-cash {
+            color: #108090;
+        }
+
+        .img1 {
+            display: block;
+            width: 32px;
+            height: 32px;
+        }
+
+        .exchange-rates {
+            background: #fff;
+            width: 589;
+            height: 583px;
+            padding-top: 32px;
+            padding-bottom: 32px;
+            padding-left: 32px;
+            padding-right: 32px;
+            border-radius: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .exchange-rates_second {
+            width: 514.92px;
+            height: 509px;
+            background: #fff;
+        }
+
+        .img-wrapping {
+            width: 12px;
+            height: 18px;
+        }
+
+        .a-wrapping_third {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 9px;
+            height: 15px;
+            margin-left: 8px;
+        }
+
+        .h1-exchange_rates-third {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .combined {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .open {
+            display: flex;
+        }
+
+        .combined-second {
+            border-radius: 16px;
+            width: 514.92px;
+            height: 52px;
+            margin-bottom: 36px;
+            padding: 4px;
+            background-color: #ecf0f0;
+            display: flex;
+        }
+
+
+        .cash {
+            color: #108090;
+            display: flex;
+            background: #fff;
+            width: 50%;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .non-cash {
+            width: 50%;
+            color: #131316;
+            display: flex;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .cash:active {
+            color: #108090;
+            background: #fff;
+        }
+
+        .non_cash:active {
+            color: #108090;
+        }
+
+        .more-info {
+            color: #6680a0;
+        }
+
+        .img-flags {
+            width: 32px;
+            height: 32px;
+        }
+
+        .table {
+            width: 100%;
+        }
+
+        .div-flags {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info {
+            width: 170px;
+            height: 24px;
+            padding-top: 12px;
+            padding-left: 12px;
+            padding-bottom: 12px;
+            padding-right: 20px;
+            background-color: #edf0f1;
+        }
+
+        td {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .info-circle {
+            width: 22px;
+            height: 22px;
+            margin-right: 8px;
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 187px;
+            height: 41px;
+            color: #108090;
+            border-radius: 8px;
+            padding-top: 12px;
+            padding-left: 12px;
+            padding-bottom: 12px;
+            padding-right: 20px;
+        }
+
+        .rates {
+            width: 303px;
+            height: 20px;
+            margin-left: 10px;
+            color: #707383;
+        }
+
+        .rich {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 114px;
+        }
+
+        .search1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search3 {
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .search4 {
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img {
+            display: flex;
+            width: 20px;
+            height: 18px;
+        }
+
+        .searchru {
+            position: relative;
+            border-radius: 50%;
+            background-color: #dfe5e8;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img1 {
+            width: 20px;
+            height: 18px;
+        }
+
+        div,
+        p,
+        span {
+            color: #18191c;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .active{
+            color: #717173;
+        }
+
+        .active:hover{
+            color: #131315;
+        }
+
+        .bank{
+            color: #131315;
+        }
+
+        .hover {
+            display: flex;
+            align-items: center;
+        }
+
+        .active {
+            align-content: center;
+        }
+
+        .products {
+            margin: 0 8px 0 0;
+        }
+
+        .dintoul{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .url{
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .dev{
+            background-color: #fff;
+            position: absolute;
+            flex-basis: 20%;
+            display: none !important;
+            width: 75vw;
+            align-content: left;
+        }
+
+        .i{
+            display: flex;
+            position: relative;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-right: 14px;
+            padding-left: 14px;
+            border-radius: 10px;
+            color: #31373e;
+        }
+
+        .i:hover .dev{
+            display: flex !important;
+        }
+
+        .och{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .ka{
+            display: flex;
+            gap: 32px;
+            flex-direction: column;
+        }
+
+        @media (max-width: 960px) {
+            .menu {
+                display: none;
+            }
+
+            .picture{
+                width: 85%;
+                align-content: center;
+            }
+
+            .search1 {
+                display: none;
+            }
+
+            .search2 {
+                display: none;
+            }
+
+            .search3 {
+                display: flex;
+            }
+
+            .search4 {
+                display: block;
+            }
+
+            .searchru {
+                display: none;
+            }
+
+            .span {
+                display: none;
+            }
+
+            .img {
+                display: none;
+            }
+
+            .imggifts {
+                background-size: cover;
+            }
+
+            .exchange-rates {
+                width: 70%;
+                flex-wrap: wrap;
+            }
+
+            .div_first-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+            }
+
+            .div_second-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+            }
+
+            .div_third-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+            }
+
+            .div_fourth-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+            }
+
+            .div_fifth-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+            }
+
+            .div_sixth-slider {
+                flex-wrap: wrap;
+                width: 50%;
+            }
+
+            .exchange-rates_second {
+                width: 100%
+            }
+
+            table {
+                width: 100%;
+            }
+
+            .combined-second {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 952px) {
+            .exchange-rates {
+                display: flex;
+                width: 100%;
+            }
+
+            .div_first-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+                display: flex;
+                align-items: center;
+            }
+
+            .div_second-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+                display: flex;
+                align-items: center;
+            }
+
+            .div_third-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+                display: flex;
+                align-items: center;
+            }
+
+            .div_fourth-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+                display: flex;
+                align-items: center;
+            }
+
+            .div_fifth-slider {
+                flex-wrap: nowrap;
+                width: 50%;
+                display: flex;
+                align-items: center;
+            }
+
+            .div_sixth-slider {
+                flex-wrap: wrap;
+                width: 50%;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .div_many-sliders-into {
+                flex-wrap: wrap;
+            }
+
+            .div_first-slider {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .picture{
+                width: 85%;
+            }
+
+            .div_first-slider{
+                width: 85%
+            }
+
+            .div_second-slider{
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="next">
+        <a href="#" class="a">
+            <img src="mbank.svg">
+        </a>
+
+        <ul class="ul">
+            <a class="i" href="#">Частным лицам
+                <div class="dev">
+                    <div class="och">
+                        <ul class="ka">
+                            <li>
+                                <span class="hover">
+                                    <img src="https://mbank.kg/media/interface/header_category/Vector.svg"
+                                        class="products">
+
+                                    <span class="active bank">Продукты MBANK</span>
+                                </span>
+                            </li>
+
+                            <li class="lirow">
+                                <span class="hover">
+                                    <img src="https://mbank.kg/media/interface/header_category/money.svg"
+                                        class="products">
+
+                                    <span class="active">Кредиты</span>
+                                </span>
+                            </li>
+
+                            <li class="lirow">
+                                <span class="hover">
+                                    <img src="https://mbank.kg/media/interface/header_category/Vector-2.svg"
+                                        class="products">
+
+                                    <span class="active">Карты</span>
+                                </span>
+                            </li>
+
+                            <li class="lirow">
+                                <span class="hover">
+                                    <img src="https://mbank.kg/media/interface/header_category/Vector-3.svg"
+                                        class="products">
+
+                                    <span class="active">Депозиты</span>
+                                </span>
+                            </li>
+
+                            <li class="lirow">
+                                <span class="hover">
+                                    <img src="https://mbank.kg/media/interface/header_category/meatball-menu.svg" class="products">
+
+                                    <span class="active">Еще</span>
+                                </span>
+                            </li>
+                        </ul>
+
+                        <div class="dintoul">
+                            <ul class="url">
+                                <li>MJunior</li>
+                                <li>MPlus</li>
+                                <li>MBusiness</li>
+                                <li>MKassa</li>
+                                <li>Market</li>
+                                <li>MBonus</li>
+                            </ul>
+
+                            <ul class="url">
+                                <li>MTravel</li>
+                                <li>MInvest</li>
+                                <li>MProfi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <ul>
+
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a class="li" href="#">Бизнесу</a>
+            <a class="li" href="#">MIslamic</a>
+            <a class="li" href="#">MAcademy</a>
+        </ul>
+
+        <div class="twobuttons">
+            <div class="search1">
+                <a class="searchru" href="#">
+                    <span class="span">RU</span>
+                </a>
+            </div>
+
+
+            <div class="search2">
+                <a class="searchru" href="#">
+                    <img src="search-svgrepo-com.svg" class="img">
+                </a>
+            </div>
+
+            <div class="search3">
+                <a href="#" class="searcha">
+                    <img src="search-svgrepo-com.svg" class="img1">
+                </a>
+            </div>
+
+            <div class="search4">
+                <a href="#" class="searcha">
+                    <img src="hamburger-menu-svgrepo-com.svg" class="img1">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="imggifts">
+        <h1 class="h1">Подарки в рассрочку без <br> процентов с MPlus</h1>
+
+        <p class="p_slider-2">Радуйте своих близких без переплат и первого взноса</p>
+
+        <a href="#" class="a_slider-2">Подробнее</a>
+    </div>
+
+    <a href="#" class="div-button_call">
+        <img src="call-svgrepo-com.svg" class="img1">
+    </a>
+
+    <div class="div_many-sliders-into">
+        <div class="div_first-slider">
+            <img src="online-credit.webp" class="picture">
+
+            <h4 class="h1-wrapping">Онлайн-кредит</h4>
+
+            <p class="span-wrapping">до 250 000 сом моментально</p>
+
+            <a href="#" class="a-wrapping">Получить</a>
+        </div>
+        <div class="div_second-slider">
+            <img src="mur.webp" class="picture">
+
+            <h4 class="h1-wrapping">Мурабаха</h4>
+
+            <p class="span-wrapping">Финансирование по <br> Исламским принципам</p>
+
+            <a href="#" class="a-wrapping">Подробнее</a>
+        </div>
+        <div class="div_third-slider">
+            <img src="mbank_card.webp" class="picture">
+
+            <p class="span-wrapping span-wrapping_second">Карта, которая зарабатывает</p>
+
+            <a href="#" class="a-wrapping">Заказать</a>
+        </div>
+        <div class="div_fourth-slider">
+            <img src="free.webp" class="picture">
+
+            <h4 class="h1-wrapping">Рассрочка без <br> процентов</h4>
+
+            <p class="span-wrapping">На любые товары</p>
+
+            <a href="#" class="a-wrapping">Подробнее</a>
+        </div>
+        <div class="div_fifth-slider">
+            <h4 class="h1-wrapping h1-wrapping_second">Депозиты</h4>
+
+            <p class="span-wrapping_third">15,5%</p>
+
+            <div class="open">
+                <a href="#" class="a-wrapping_second">Откройте вклад</a>
+
+                <a href="#" class="a-wrapping_third">
+                    <img src="arrow-right-336-svgrepo-com.svg" class="img-wrapping">
+                </a>
+            </div>
+        </div>
+        <div class="div_sixth-slider">
+            <img src="googlepay.webp" class="picture">
+
+            <h4 class="h1-wrapping">Google Pay</h4>
+
+            <p class="span-wrapping">оплата покупок одним <br> касанием</p>
+
+            <a href="#" class="a-wrapping">Подробнее</a>
+        </div>
+
+        <div class="exchange-rates">
+            <div class="exchange-rates_second">
+                <div class="combined">
+                    <h1 class="h1-exchange_rates-third">Курсы валют</h1>
+
+                    <a href="#" class="more-info">ПОДРОБНЕЕ
+                        <img src="arrow-right-336-svgrepo-com.svg" class="img-wrapping">
+                    </a>
+                </div>
+
+                <div class="combined-second">
+                    <div class="cash">
+
+                        <a class="a-cash">Наличные</a>
+
+                    </div>
+
+                    <div class="non-cash">
+                        <a class="a-non_cash">Безналичные</a>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <td>Валюта</td>
+                        <td>Покупка</td>
+                        <td>Продажа</td>
+                        <td>НБКР</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="div-flags"><img src="flag-us-svgrepo-com.svg" class="img-flags"><span>USD</span>
+                            </div>
+                        </td>
+                        <td>87.3000</td>
+                        <td>87.8000</td>
+                        <td>87.4500</td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="div-flags"><img src="flag-eu-svgrepo-com.svg" class="img-flags"><span>EUR</span>
+                            </div>
+                        </td>
+                        <td>97.5000</td>
+                        <td>98.5000</td>
+                        <td>98.2807</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="div-flags"><img src="flag-for-flag-russia-svgrepo-com.svg"
+                                    class="img-flags"><span>RUB</span>
+                            </div>
+                        </td>
+                        <td>1.0750</td>
+                        <td>1.1000</td>
+                        <td>1.0897</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="div-flags"><img src="kazakhstan-svgrepo-com.svg"
+                                    class="img-flags"><span>KZT</span>
+                            </div>
+                        </td>
+                        <td>0.1200</td>
+                        <td>0.1750</td>
+                        <td>0.1728</td>
+                    </tr>
+                </table>
+
+                <div class="rich">
+                    <div class="info">
+                        <a href="#" class="info"><img src="info-circle-svgrepo-com.svg" class="info-circle">
+                            Информация
+                        </a>
+                    </div>
+                    <div class="rates">Курс действует с 16.05.2025</div>
+                </div>
+
+            </div>
+            <script>
+
+            </script>
+</body>
+
+</html>

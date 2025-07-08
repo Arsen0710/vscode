@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoodChoice AI</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #191919;
+      color: #ececf1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    #chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 768px;
+      margin: auto;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .message {
+      margin: 0.75rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+    .user {
+      background-color: #2b2c2f;
+      align-self: flex-end;
+    }
+    .bot {
+      background-color: #444654;
+      align-self: flex-start;
+    }
+    #input-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      background-color: #191919;
+      border-top: 1px solid #2b2c2f;
+    }
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 768px;
+      background-color: #2b2c2f;
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+    }
+    #input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0.5rem;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #191919;
+    }
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.8);
+    }
+    strong {
+      font-weight: bold;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container"></div>
+
+  <form id="input-form">
+    <div class="input-wrapper">
+      <input type="text" id="input" placeholder="Спроси что угодно..." autocomplete="off" />
+      <button type="button" id="mic-btn" class="icon-btn" title="Голосовой режим">
+        <!-- Микрофон -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0h-2zm-5 9v-2h-2v2h2z" />
+        </svg>
+      </button>
+      <button type="submit" id="send-btn" class="icon-btn hidden" aria-label="Отправить">
+        <!-- Стрелка -->
+        <svg viewBox="0 0 24 24">
+          <path d="M3 20v-6l13-2-13-2V4l18 8-18 8z" />
+        </svg>
+      </button>
+    </div>
+  </form>
+
+  <script>
+    const chatContainer = document.getElementById('chat-container');
+    const form = document.getElementById('input-form');
+    const input = document.getElementById('input');
+    const micBtn = document.getElementById('mic-btn');
+    const sendBtn = document.getElementById('send-btn');
+
+    function toggleButtons() {
+      const hasText = input.value.trim().length > 0;
+      micBtn.classList.toggle('hidden', hasText);
+      sendBtn.classList.toggle('hidden', !hasText);
+    }
+
+    input.addEventListener('input', toggleButtons);
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+
+      addMessage('user', userMsg);
+      input.value = '';
+      toggleButtons();
+
+      try {
+        const res = await fetch('http://localhost:3000/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userMsg })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          addMessage('bot', data.reply);
+        } else {
+          addMessage('bot', 'Ошибка: ' + (data.error || 'Неизвестная ошибка'));
+        }
+      } catch (err) {
+        addMessage('bot', 'Ошибка подключения к серверу.');
+      }
+    });
+
+    function addMessage(role, content) {
+      const div = document.createElement('div');
+      div.className = message ${role};
+      const formatted = content.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+      div.innerHTML = formatted;
+      chatContainer.appendChild(div);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    // Голосовой ввод
+    micBtn.addEventListener('click', () => {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert("Ваш браузер не поддерживает голосовой ввод.");
+        return;
+      }
+
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = 'ru-RU';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.start();
+
+      recognition.onresult = (event) => {
+        const text = event.results[0][0].transcript;
+        input.value = text;
+        input.dispatchEvent(new Event('input'));
+      };
+
+      recognition.onerror = (event) => {
+        console.error('Ошибка голосового ввода:', event.error);
+      };
+    });
+  </script>
+</body>
+</html>
