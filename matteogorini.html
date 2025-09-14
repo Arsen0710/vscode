@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#c5ecb1;">
+    <title>Matteo Gorini</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+        a {
+            display: block;
+        }
+
+        * {
+            font-size: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            box-sizing: content-box;
+            text-decoration: none !important;
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: #c5ecb1;
+        }
+
+        :root {
+            --c-bg: #FFFFFF;
+            --c-text: #3D3A36;
+            --c-brand: #C4ECB1;
+            --f-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            --f-size: 22.422px;
+            --f-height: 28px;
+            --f-weight: 400;
+            --f-weight2: 700;
+            --border-thickness: 0.2rem;
+        }
+
+        html,
+        body {
+            margin: 0;
+        }
+
+
+        #body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            line-height: 1.3;
+            scroll-behavior: smooth;
+        }
+
+        .header {
+            height: 99.99vh;
+            background-color: #c5ecb1;
+        }
+
+        .header-top {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0 1rem 0 !important;
+            padding: 1.401375rem;
+            border-top: var(--border-thickness) solid var(--c-text);
+            border-bottom: var(--border-thickness) solid var(--c-text);
+        }
+
+        .header-initials {
+            width: 41.5rem;
+            height: 16.625rem;
+            padding: 1.401375rem 0 1.401375rem 0;
+        }
+
+        .header-mark {
+            width: 20.0625rem;
+            height: 16.625rem;
+        }
+
+        .header-initials-img {
+            display: flex;
+            justify-content: left;
+            width: 41.5rem;
+            height: 16.625rem;
+        }
+
+        .header-mark-img {
+            width: 20.0625rem;
+            height: 16.625rem;
+        }
+
+        .header-bottom {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .header-bottom {
+            width: 100%;
+        }
+
+        .header-title-img {
+            width: 41.5rem;
+            padding-left: 2.80275rem;
+        }
+
+        .tripple {
+            height: 21rem;
+        }
+
+        .tripplelist {
+            font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            color: var(--c-text);
+            font-weight: var(--f-weight2);
+            font-size: 22px;
+            text-decoration: none;
+            transition-duration: 150ms;
+        }
+
+        .tripplelist:hover {
+            color: #fff;
+        }
+
+        .trippleulist {
+            font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            color: var(--c-text);
+            font-weight: var(--f-weight2);
+            font-size: 22px;
+            text-decoration: none;
+            transition-duration: 150ms;
+        }
+
+        .trippleulist:hover {
+            color: #c5ecb1;
+        }
+
+        .tripplespisok {
+            display: flex;
+            width: 41.5rem;
+            height: 21rem;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        .opening {
+            background-color: #fff;
+            height: 150vh;
+            width: 100%;
+        }
+
+        .leftpeshka {
+            padding-left: 2.80275rem;
+            ;
+            font-family: var(--f-family);
+            font-size: clamp(22px, 1.97vi + 15.12px, 80px);
+            line-height: 1.1;
+            grid-area: intro;
+            max-width: 55ch;
+        }
+
+        .openingrightimg {
+            margin-right: 2.375rem;
+            width: 70%;
+        }
+
+        .right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .font {
+            font-family: "Helvetica Neue", sans-serif;
+            font-size: clamp(15px, .68vi + 12.63px, 35px);
+            letter-spacing: normal;
+            color: #3b3935;
+            font-weight: 300;
+            line-height: 1.1;
+            max-width: 55ch;
+            padding-left: 0.5rem;
+        }
+
+        .bottomfont {
+            font-size: 80px
+        }
+
+        .bottom {
+            padding: 0 2.76rem 0 2.76rem;
+            display: flex;
+        }
+
+        .servizi {
+            padding: 2.76rem;
+            font-size: clamp(22px, 1.97vi + 15.12px, 80px);
+            height: 86vh;
+            background-color: var(--c-text);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .servisi {
+            color: var(--c-brand);
+            font-size: clamp(22px, 1.97vi + 15.12px, 80px);
+            font-family: "Helvetica Neue", sans-serif;
+            grid-column: 1 / 3;
+        }
+
+        .firstcolumn {
+            width: 40rem;
+        }
+
+        .secondcolumn {
+            width: 40rem;
+        }
+
+        .service-title {
+            color: var(--c-brand);
+            font-size: 21.5px;
+            font-weight: 700;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .service-net {
+            color: #fff;
+            font-size: 21.5px;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .helparsen {
+            display: flex;
+        }
+
+        #leftp{
+            color: var(--c-text);
+        }
+
+        .contattami{
+            height: 115vh;
+            background-color: var(--c-brand);
+        }
+    </style>
+</head>
+
+<body id="body">
+    <header class="header">
+        <header class="header-top">
+            <div class="header-initials">
+                <img class="header-initials-img" src="https://matteogorini.com/assets/images/initials.svg">
+            </div>
+            <div class="header-mark">
+                <img class="header-mark-img" src="https://matteogorini.com/assets/images/mark.svg">
+            </div>
+        </header>
+
+        <header class="header-bottom">
+            <div class="header-title">
+                <img class="header-title-img" src="https://matteogorini.com/assets/images/logotype.svg">
+            </div>
+
+            <div class="tripple">
+                <div class="tripplespisok">
+                    <a href="#chisono" class="tripplelist">Chi sono</a>
+                    <a href="#servizi" class="tripplelist">Servizi</a>
+                    <a href="#contattami" class="tripplelist">Contattami</a>
+                </div>
+            </div>
+        </header>
+    </header>
+    <div class="opening" id="chisono">
+        <div class="left">
+            <p class="leftpeshka">Sono Matteo Gorini, biologo nutrizionista specializzato in alimentazione sportiva.
+                Sono originario di Rimini e ricevo i miei pazienti sia nella mia città che in provincia di Como.</p>
+        </div>
+        <div class="right">
+            <img src="https://matteogorini.com/assets/images/g.jpg" class="openingrightimg" \>
+        </div>
+
+        <div class="bottom">
+            <div class="bottomfont">
+                <p class="font">Nel 2016 ho ottenuto la laurea magistrale a ciclo unico in Farmacia proseguendo poi con
+                    laurea in Biologia Molecolare, Sanitaria della Nutrizione con una tesi sperimentale sul trail
+                    running. Poco dopo ho superato l’esame di stato per biologi.</p>
+                <p class="font">Nel mio background professionale si trovano sia esperienze presso piccole farmacie di
+                    montagna che in multinazionali del settore farmaceutico, tra cui Walgreens Boots Alliance.</p>
+            </div>
+            <div class="topfont">
+                <p class="font">La formazione continua fa parte del mio lavoro: tutti i giorni, attraverso ricerche e
+                    studi, mi mantengo preparato e aggiornato sull’evoluzione del mondo scientifico-nutrizionale. Sono
+                    inoltre diplomato Sanis, Scuola di Nutrizione Sportiva riconosciuto dalla European Sport Nutrition
+                    Society, e certificato ISAK Level 1 (The International Society for the Advancement of
+                    Kinanthropometry).</p>
+                <p class="font">
+                    Seguo persone e atleti con lo stesso approccio: tracciare un piano mirato ed equilibrato che porti
+                    loro efficienza fisica e benessere ottimale.
+                </p>
+
+                <a href="#" class="trippleulist">Scarica qui il mio CV</a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="servizi" id="servizi">
+        <p class="servisi">
+            Servizi
+        </p>
+        <div class="firstcolumn">
+            <p class="service-title">. Educazione alimentare</p>
+            <p class="service-net">È il cuore di ogni programma nutrizionale, molto importante
+                <br> comprendere le basi di una buona alimentazione e acquisire gli <br> strumenti per gestirla in
+                autonomia, anche al completamento del <br> percorso insieme.
+            </p>
+            <p class="service-title">. Valutazione della composizione corporea</p>
+            <p class="service-net">
+                Per ottenere una conoscenza precisa della composizione <br> corporea di un soggetto, è fondamentale
+                adottare un approccio <br> dettagliato che consenta una pianificazione accurata del <br> percorso da
+                intraprendere. Essendo questo tema di grande <br> interesse per me, ho conseguito la certificazione
+                secondo lo <br> standard internazionale ISAK, al fine di garantire una valutazione <br> oggettiva dei
+                dati raccolti. Le metodiche utilizzate combinano <br> sinergicamente misurazioni antropometriche e <br>
+                bioimpedenziometriche, comprendendo la rilevazione delle <br> circonferenze corporee, la plicometria per
+                la misura delle pliche <br> cutanee, la misurazione dei diametri ossei e l'analisi <br>
+                bioimpedenziometrica tramite BIVA 101® PRO.
+            </p>
+        </div>
+        <di\v class="secondcolumn">
+            <p class="service-title">. Piani nutrizionali personalizzati</p>
+            <p class="service-net">Gli obiettivi dei pazienti possono essere molto simili - migliorare prestazioni
+                atletiche, perdere peso, sentirsi meglio in generale - ma ogni corpo è diverso per composizione,
+                abitudini, sensibilità e stile di vita. Ogni piano nutrizionale che preparo ne tiene conto e ti assicura
+                un apporto equilibrato di macro e micronutrienti: è quindi già bilanciato in base alle tue
+                caratteristiche e ai risultati da raggiungere.</p>
+
+            <p class="service-title">. Sport e performance</p>
+            <p class="service-net">
+                Ogni disciplina sportiva, proprio come ogni atleta, ha richieste energetiche differenti da soddisfare.
+                Una pianificazione alimentare strategica unita al confronto regolare con il paziente ha impatto su tutti
+                gli aspetti della vita sportiva: migliora le performance, favorisce il recupero tra le sessioni di
+                allenamento e abbassa il rischio di infortuni.
+            </p>
+        </div>
+    </div>
+
+    <div class="contattami" id="contattami">
+        <p class="leftpeshka" id="leftp">Contattami</p>
+    </div>
+</body>
+</html>
